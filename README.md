@@ -24,7 +24,7 @@ Users can add new tasks, mark tasks as completed, delete tasks, and view their l
 
 ##  Project Structure
 
-```plaintext
+
 se_project_todo-app/
 ├── components/
 │   ├── FormValidator.js
@@ -41,4 +41,4 @@ se_project_todo-app/
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+ Here's the link: (https://khalidn1.github.io/se_project_todo-app/)
