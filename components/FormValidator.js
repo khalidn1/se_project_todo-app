@@ -71,6 +71,6 @@ export class FormValidator {
       inputElement.value = "";
     });
 
-    this._disableButton();
+    this._toggleButtonState();
   }
 }

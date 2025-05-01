@@ -11,6 +11,10 @@ const todosList = document.querySelector(".todos__list");
 
 function openModal(modal) {
   modal.classList.add("popup_visible");
+  if (modal === addTodoPopup) {
+    addTodoForm.reset();
+    addTodoFormValidator.resetValidation();
+  }
 }
 
 function closeModal(modal) {
