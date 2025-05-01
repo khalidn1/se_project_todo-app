@@ -26,15 +26,20 @@ Users can add new tasks, mark tasks as completed, delete tasks, and view their l
 
 
 se_project_todo-app/
+
 ├── components/
 │   ├── FormValidator.js
 │   └── Todo.js
+
 ├── pages/
 │   ├── index.js
 │   └── index.css
+
 ├── utils/
 │   └── constants.js
+
 ├── index.html
+
 ├── README.md
 
 ## Deployment
