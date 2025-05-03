@@ -4,6 +4,7 @@ export class Todo {
     this._date = data.date;
     this._id = data.id;
     this._selector = selector;
+    this._element = null;
   }
 
   _setEventListeners() {
@@ -20,20 +21,21 @@ export class Todo {
   }
 
   getView() {
-    const template = document
+    this._element = document
       .querySelector(this._selector)
       .content.querySelector(".todo")
       .cloneNode(true);
 
-    this._element = template;
-
-    const nameElement = this._element.querySelector(".todo__name");
-    nameElement.textContent = this._name;
+    this._element.querySelector(".todo__name").textContent = this._name;
 
     const dateElement = this._element.querySelector(".todo__date");
     if (this._date) {
       const dateObj = new Date(this._date);
-      dateElement.textContent = "Due: " + dateObj.toLocaleDateString();
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      dateElement.textContent = `Due: ${dateObj.toLocaleDateString(
+        "en-US",
+        options
+      )}`;
     } else {
       dateElement.remove();
     }
@@ -41,10 +43,9 @@ export class Todo {
     const checkbox = this._element.querySelector(".todo__completed");
     const label = this._element.querySelector(".todo__label");
     checkbox.id = `todo-${this._id}`;
-    label.setAttribute("for", `todo-${this._id}`);
+    label.setAttribute("for", checkbox.id);
 
     this._setEventListeners();
-
     return this._element;
   }
 }

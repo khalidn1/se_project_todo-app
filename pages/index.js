@@ -5,16 +5,17 @@ import { Todo } from "../components/Todo.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = document.querySelector(".popup__form");
+const addTodoForm = document.forms["add-todo-form"];
 const addTodoCloseBtn = document.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
+const renderTodo = (data) => {
+  const todoElement = generateTodo(data);
+  todosList.append(todoElement);
+};
+
 function openModal(modal) {
   modal.classList.add("popup_visible");
-  if (modal === addTodoPopup) {
-    addTodoForm.reset();
-    addTodoFormValidator.resetValidation();
-  }
 }
 
 function closeModal(modal) {
@@ -26,15 +27,10 @@ function generateTodo(data) {
   return todo.getView();
 }
 
-addTodoButton.addEventListener("click", function () {
-  openModal(addTodoPopup);
-});
+addTodoButton.addEventListener("click", () => openModal(addTodoPopup));
+addTodoCloseBtn.addEventListener("click", () => closeModal(addTodoPopup));
 
-addTodoCloseBtn.addEventListener("click", function () {
-  closeModal(addTodoPopup);
-});
-
-addTodoForm.addEventListener("submit", function (evt) {
+addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
   const name = addTodoForm.name.value;
@@ -42,25 +38,20 @@ addTodoForm.addEventListener("submit", function (evt) {
 
   const todoData = {
     id: uuidv4(),
-    name: name,
+    name,
     completed: false,
     date: date ? new Date(date).toISOString() : null,
   };
 
-  const todoElement = generateTodo(todoData);
-  todosList.append(todoElement);
-
+  renderTodo(todoData);
   addTodoForm.reset();
-
   addTodoFormValidator.resetValidation();
-
   closeModal(addTodoPopup);
 });
 
 const addTodoFormValidator = new FormValidator(validationConfig, addTodoForm);
 addTodoFormValidator.enableValidation();
 
-initialTodos.forEach(function (item) {
-  const todoElement = generateTodo(item);
-  todosList.append(todoElement);
+initialTodos.forEach((item) => {
+  renderTodo(item);
 });
