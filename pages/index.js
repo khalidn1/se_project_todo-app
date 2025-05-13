@@ -1,10 +1,10 @@
-import PopupWithForm from "../components/popupwithform.js";
-import Section from "../components/section.js";
-import TodoCounter from "../components/todoCounter.js";
+import PopupWithForm from "./components/popupwithform.js";
+import Section from "./components/section.js";
+import TodoCounter from "./components/todoCounter.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-import { FormValidator } from "../components/formValidator.js";
-import { initialTodos, validationConfig } from "../utils/constants.js";
-import { Todo } from "../components/Todo.js";
+import { FormValidator } from "./components/formValidator.js";
+import { initialTodos, validationConfig } from "./utils/constants.js";
+import { Todo } from "./components/Todo.js";
 
 const todoCounter = new TodoCounter(
   initialTodos,
