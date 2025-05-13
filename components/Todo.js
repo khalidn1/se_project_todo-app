@@ -31,7 +31,11 @@ export class Todo {
     const dateElement = this._element.querySelector(".todo__date");
     if (this._date) {
       const dateObj = new Date(this._date);
-      const options = { year: "numeric", month: "long", day: "numeric" };
+      const options = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      };
       dateElement.textContent = `Due: ${dateObj.toLocaleDateString(
         "en-US",
         options

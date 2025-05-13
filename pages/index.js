@@ -6,7 +6,10 @@ import { FormValidator } from "../components/formValidator.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import { Todo } from "../components/Todo.js";
 
-const todoCounter = new TodoCounter(initialTodos, ".todo-counter");
+const todoCounter = new TodoCounter(
+  initialTodos,
+  ".counter__text"
+);
 
 const todoSection = new Section({
   items: initialTodos,
