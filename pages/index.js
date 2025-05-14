@@ -2,7 +2,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import TodoCounter from "../components/TodoCounter.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-import { FormValidator } from "../components/formValidator.js";
+import { FormValidator } from "../components/FormValidator.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import { Todo } from "../components/Todo.js";
 
