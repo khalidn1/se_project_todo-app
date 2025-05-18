@@ -46,7 +46,6 @@ export class Todo {
       dateElement.remove();
     }
 
-    const checkbox = this._element.querySelector(".todo__completed");
     const label = this._element.querySelector(".todo__label");
     checkbox.id = `todo-${this._id}`;
     label.setAttribute("for", checkbox.id);
