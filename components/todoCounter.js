@@ -1,4 +1,4 @@
-export default class TodoCounter {
+class TodoCounter {
   constructor(todos, selector) {
     this._element = document.querySelector(selector);
     this._completed = todos.filter((todo) => todo.completed).length;
@@ -20,3 +20,5 @@ export default class TodoCounter {
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
   }
 }
+
+export default TodoCounter;
