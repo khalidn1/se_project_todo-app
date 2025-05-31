@@ -1,4 +1,4 @@
-import PopupWithForm from "../components/PopupWithForm.js/index.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import TodoCounter from "../components/TodoCounter.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
@@ -27,10 +27,12 @@ function renderTodo(todoData) {
   todoSection.addItem(todoElement);
 }
 
-const todoSection = new Section(
-  { items: initialTodos, renderer: renderTodo },
-  ".todos__list"
-);
+const todoSection = new Section({
+  items: initialTodos,
+  renderer: renderTodo,
+  containerSelector: ".todos__list",
+});
+
 todoSection.renderItems();
 
 const addTodoForm = document.forms["add-todo-form"];
